@@ -1,3 +1,5 @@
+package com.oop;
+
 public interface CreatingPerson {
     default Person createPerson(String[] param) {
         return new Person(

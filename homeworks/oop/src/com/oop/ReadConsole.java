@@ -1,3 +1,5 @@
+package com.oop;
+
 public class ReadConsole {
 
     private final String string;

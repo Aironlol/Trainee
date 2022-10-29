@@ -1,3 +1,5 @@
+package com.oop;
+
 import java.lang.reflect.Field;
 
 public interface ReadingStroke {

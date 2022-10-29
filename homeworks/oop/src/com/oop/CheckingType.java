@@ -1,3 +1,5 @@
+package com.oop;
+
 public interface CheckingType {
 
     static boolean isNumber(String string) {
