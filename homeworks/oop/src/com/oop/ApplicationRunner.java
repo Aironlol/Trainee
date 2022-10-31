@@ -22,10 +22,7 @@ public class ApplicationRunner {
 
                 do {
                     consoleStroke = new ReadConsole(scanner.nextLine());
-                    RunCommand runCommand = new RunCommand(
-                            consoleStroke.getCommand(),
-                            consoleStroke.getValidField(),
-                            princessesCollections);
+                    RunCommand runCommand = new RunCommand(consoleStroke, princessesCollections);
                     runCommand.run();
                 } while (!consoleStroke.getCommand().contains("exit"));
 

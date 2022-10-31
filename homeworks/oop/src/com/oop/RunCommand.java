@@ -5,24 +5,25 @@ import java.util.Objects;
 
 public class RunCommand implements CreatingPerson{
 
-    private String command;
-    private String[] parameters;
+    private ReadConsole readConsole;
     private PrincessesCollections princessesCollections;
 
-    public RunCommand(String command, String[] parameters, PrincessesCollections princessesCollections) {
-        this.command = command;
-        this.parameters = parameters;
+    public RunCommand(ReadConsole readConsole, PrincessesCollections princessesCollections) {
+        this.readConsole = readConsole;
         this.princessesCollections = princessesCollections;
     }
 
     public void run() {
         String SYNTAX_ERROR = "Syntax error";
         Field[] FIELDS = Person.class.getDeclaredFields();
-        boolean CHECK = (parameters != null) && (parameters.length == FIELDS.length);
+        String[] validField = readConsole.getValidField();
+        String command = readConsole.getCommand();
+        boolean CHECK = (validField != null) && (validField.length == FIELDS.length);
 
-        switch (this.command) {
+
+        switch (command) {
             case "list" -> {
-                if ((parameters != null)){
+                if ((validField != null)){
                     System.out.println(SYNTAX_ERROR);
                 } else {
                     this.princessesCollections.getPersonsList();
@@ -30,28 +31,28 @@ public class RunCommand implements CreatingPerson{
             }
             case "add" -> {
                 if (CHECK)  {
-                    this.princessesCollections.addPerson(Objects.requireNonNull(createPerson(parameters)));
+                    this.princessesCollections.addPerson(Objects.requireNonNull(createPerson(validField)));
                 } else  {
                     System.out.println(SYNTAX_ERROR);
                 }
             }
             case "get" -> {
-                if (parameters == null || parameters.length > 1)  {
+                if (validField == null || validField.length > 1)  {
                     System.out.println(SYNTAX_ERROR);
                 } else {
-                    this.princessesCollections.getPerson(Integer.parseInt(parameters[0]));
+                    this.princessesCollections.getPerson(Integer.parseInt(validField[0]));
                 }
             }
             case "update" -> {
                 if (CHECK) {
-                    this.princessesCollections.updatePerson(createPerson(parameters));
+                    this.princessesCollections.updatePerson(createPerson(validField));
                 } else {
                     System.out.println(SYNTAX_ERROR);
                 }
             }
             case "delete" -> {
-                if (parameters != null) {
-                    this.princessesCollections.removePerson(Integer.parseInt(parameters[0]));
+                if (validField != null) {
+                    this.princessesCollections.removePerson(Integer.parseInt(validField[0]));
                 } else {
                     System.out.println(SYNTAX_ERROR);
                 }

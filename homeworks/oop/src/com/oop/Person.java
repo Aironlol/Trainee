@@ -18,48 +18,6 @@ public class Person {
         this.eyeColor = eyeColor;
     }
 
-    public boolean checkPerson() {
-        boolean result = true;
-
-        String[] validHairColor = {
-                "Black",
-                "Blonde",
-                "Platinum-blonde",
-                "Strawberry-blonde",
-                "Red",
-                "Brown",
-        };
-        String[] validEyeColor = {
-                "Brown",
-                "Blue",
-                "Violet",
-                "Hazel",
-        };
-
-
-        if (id < 0) {
-            System.out.println("The Id value cannot be negative.");
-            result = false;
-        }
-        if ((name.length() == 0) || (name.length() > 30)) {
-            System.out.println("The name value can contain from 1 to 30 characters.");
-            result = false;
-        }
-        if (age < 0 || age>99) {
-            System.out.println("The age value can be from 0 to 99.");
-            result = false;
-        }
-        if (!Arrays.asList(validHairColor).contains(hairColor)){
-            System.out.println("The hair color may be as follows: " + Arrays.toString(validHairColor));
-            result = false;
-        }
-        if (!Arrays.asList(validEyeColor).contains(eyeColor)){
-            System.out.println("The eye color may be as follows: " + Arrays.toString(validEyeColor));
-            result = false;
-        }
-        return result;
-    }
-
     public String getPerson() {
         return String.format(
                 """
