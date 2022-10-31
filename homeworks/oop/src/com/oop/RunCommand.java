@@ -18,12 +18,12 @@ public class RunCommand implements CreatingPerson{
         Field[] FIELDS = Person.class.getDeclaredFields();
         String[] validField = readConsole.getValidField();
         String command = readConsole.getCommand();
-        boolean CHECK = (validField != null) && (validField.length == FIELDS.length);
-
+        boolean VALID_FILED_NOT_NULL = validField != null;
+        boolean CHECK = (VALID_FILED_NOT_NULL) && (validField.length == FIELDS.length);
 
         switch (command) {
             case "list" -> {
-                if ((validField != null)){
+                if ((VALID_FILED_NOT_NULL)){
                     System.out.println(SYNTAX_ERROR);
                 } else {
                     this.princessesCollections.getPersonsList();
@@ -37,10 +37,10 @@ public class RunCommand implements CreatingPerson{
                 }
             }
             case "get" -> {
-                if (validField == null || validField.length > 1)  {
-                    System.out.println(SYNTAX_ERROR);
-                } else {
+                if (VALID_FILED_NOT_NULL)  {
                     this.princessesCollections.getPerson(Integer.parseInt(validField[0]));
+                } else {
+                    System.out.println(SYNTAX_ERROR);
                 }
             }
             case "update" -> {
@@ -51,7 +51,7 @@ public class RunCommand implements CreatingPerson{
                 }
             }
             case "delete" -> {
-                if (validField != null) {
+                if (VALID_FILED_NOT_NULL) {
                     this.princessesCollections.removePerson(Integer.parseInt(validField[0]));
                 } else {
                     System.out.println(SYNTAX_ERROR);

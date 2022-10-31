@@ -12,9 +12,14 @@ public class PrincessesCollections implements CreatingPerson {
     }
 
     public void getPersonsList() {
-        for (Map.Entry<Integer, Person> entry : map.entrySet()) {
-            System.out.println(entry.getKey() + ". " + entry.getValue().getPerson());
+        if (!map.isEmpty()) {
+            for (Map.Entry<Integer, Person> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + ". " + entry.getValue().getPerson());
+            }
+        } else {
+            System.out.println("Collection is empty");
         }
+
     }
 
     public void addPerson(Person person) {
@@ -25,6 +30,8 @@ public class PrincessesCollections implements CreatingPerson {
             } else {
                 System.out.println("The Princess exists.");
             }
+        } else {
+            System.out.println("Princess has not been added.");
         }
     }
 

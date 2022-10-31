@@ -9,11 +9,11 @@ public class ApplicationRunner {
 
         try {
             PrincessesCollections princessesCollections = new PrincessesCollections(new HashMap<>());
-            File myFile = new File(String.join(File.separator, "resources", "disney-princesses.txt"));
+            File resourcesFile = new File(String.join(File.separator, "resources", "disney-princesses.txt"));
 
-            if (myFile.exists()) {
+            if (resourcesFile.exists()) {
                 System.out.println("File found.");
-                princessesCollections.addFile(myFile);
+                princessesCollections.addFile(resourcesFile);
                 System.out.println("The application is ready to work.");
                 System.out.println("Start typing commands:");
 
