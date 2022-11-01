@@ -1,7 +1,7 @@
 package com.oop;
 
 import java.util.Arrays;
-
+// comment
 public interface CheckPerson {
 
     static boolean check(Person person) {

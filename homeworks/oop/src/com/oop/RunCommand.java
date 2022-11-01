@@ -2,7 +2,7 @@ package com.oop;
 
 import java.lang.reflect.Field;
 import java.util.Objects;
-
+// comment
 public class RunCommand implements CreatingPerson{
 
     private ReadConsole readConsole;

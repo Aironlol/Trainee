@@ -2,7 +2,7 @@ package com.oop;
 
 import java.io.*;
 import java.util.Map;
-
+// comment
 public class PrincessesCollections implements CreatingPerson {
 
     private final Map<Integer, Person> map;

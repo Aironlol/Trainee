@@ -1,5 +1,5 @@
 package com.oop;
-
+// comment
 public interface CreatingPerson {
     default Person createPerson(String[] param) {
         return new Person(

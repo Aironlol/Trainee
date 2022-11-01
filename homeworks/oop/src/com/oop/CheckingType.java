@@ -1,5 +1,5 @@
 package com.oop;
-
+// comment
 public interface CheckingType {
 
     static boolean isNumber(String string) {
